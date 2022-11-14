@@ -6,6 +6,9 @@ import "./index.css";
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql",
+  headers: {
+    "x-user": new URLSearchParams(window.location.search).get("u") || '',
+  },
   cache: new InMemoryCache(),
 });
 
