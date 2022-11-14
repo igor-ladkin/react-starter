@@ -1,4 +1,16 @@
+import { useQuery, gql } from '@apollo/client';
+
+const QUERY = gql`
+  query {
+    testField
+  }
+`;
+
 function App() {
+  const { loading, error, data } = useQuery(QUERY);
+
+  console.log({ loading, error, data });
+
   return (
     <main className="container mx-auto mt-10 px-5 flex">
       <div className="w-full">
